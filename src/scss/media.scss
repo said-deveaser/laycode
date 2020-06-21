@@ -1,0 +1,302 @@
+@function toEm($px, $em: 16) {
+    @return ($px / $em) + em;
+}
+.container {
+    width: 70%;
+    // max-width: 1170px;
+}
+html, body {
+    font-size: 16px !important;
+}
+@media (max-width: 1800px) {
+    html, body {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 1700px) {
+    html, body {
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 1600px) {
+    .container {
+        width: 78%;
+    }
+
+    html, body {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 1550px) {
+
+}
+
+@media (max-width: 1500px) {
+    html, body {
+        font-size: 13px !important;
+    }
+}
+
+
+@media (max-width: 1450px) {
+    .container {
+        width: 80%;
+    }
+
+    html, body {
+        font-size: 12.5px !important;
+    }
+}
+
+@media (max-width: 1400px) {
+    html, body {
+        font-size: 12px !important;
+    }
+}
+
+
+@media (max-width: 1350px) {
+    html, body {
+        font-size: 11.5px !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    html, body {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    html, body {
+        font-size: 11px !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .discount-form__input {
+        margin-bottom: 0.5em;
+    }
+}
+
+@media (max-width: 1550px) {
+
+}
+
+
+/* MOBILE VERSION */
+@media (max-width: 768px) {
+    .container {
+        width: 93%;
+    }
+
+    html, body {
+        font-size: 2.5vw !important;
+    }
+    .mobile-burger {
+        display: block;
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        width: 4em;
+        height: 3em;
+        span {
+            width: 100%;
+            height: 0.3em;
+            transition-duration: .5s;
+            background-color: #ffffff;
+            position: relative;
+            &::before, &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 0.3em;
+                transition-duration: .5s;
+                background-color: #ffffff;
+                top: -1em;
+            }
+            &::after {
+                top: auto;
+                transition-duration: .5s;
+                bottom: -1em;
+            }
+        }
+        &.active {
+            span {
+                transform: rotate(45deg);
+                transform-origin: center;
+                &::after {
+                    bottom: 0;
+                    transform: rotate(-90deg);
+                }
+                &::before{
+                    top: 0;
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+    }
+    nav {
+        opacity: 0;
+        transition-duration: .5s;
+        // display: none;
+        position: absolute;
+        top: 100%;
+        height: 0;
+        overflow: hidden;
+        right: 0;
+        text-align: right;
+        width: 100vw;
+        // height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background-color: #fafafa;
+        .header-menu{
+            padding: 2em 0 2em;
+            li{
+                font-size: 1.7em;
+                margin-top: 1em;
+            }
+        }
+        &.active {
+            height: toEm(238);
+            height: 100vh;
+            opacity: 1;
+            display: block;
+        }
+        .header-menu {
+            flex-direction: column;
+            padding-right: 4em;
+            li {
+                margin-right: 0;
+            }
+        }
+    }
+    #web-layouts-course .container {
+        flex-direction: column-reverse;
+    }
+    .html-css-img {
+        background: linear-gradient(to right, #ffffff 50%, #e4e4e4 50%);
+        font-size: .7em;
+        img {
+            padding: 0;
+        }
+    }
+    .be-webmaster_top {
+        background-size: cover;
+    }
+    .webmaster-pluses {
+        flex-direction: column;
+        &__item {
+            &:not(:last-child) {
+                margin-bottom: 2em;
+            }
+        }
+        &__text {
+            // margin-top: .7em;
+        }
+    }
+    #course-features {
+        background-size: auto 30%!important;
+    }
+    .features-list {
+        background: none;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        &__item {
+            width: 100%;
+            position: static;
+            // border-bottom: 1px solid;
+            padding-right: 10%;
+            padding: 1.5em 0 0;
+            margin-top: 1.5em;
+            border-top: 1px solid;
+            &:not(:first-child) {
+
+            }
+            &:nth-child(2n) {
+                padding-right: 0;
+                padding-left: 10%;
+                align-self: flex-end;
+            }
+        }
+    }
+    #get-discount {
+        background-size: auto 100% !important;
+        background-position: -50em bottom!important;
+    }
+    .discount-form {
+        &__input {
+            margin-right: 0;
+            width: 100%;
+            margin-bottom: .5em;
+        }
+        &__submit {
+            width: 100%;
+        }
+    }
+    .study-list {
+        padding-top: 27em;
+        // flex-direction: column;
+        flex-wrap: nowrap;
+        overflow: auto;
+        background: url(/dist/img/how-study.png) no-repeat 15% top, url('/src/img/Pm5ZL.png') no-repeat bottom 3em left;
+        background-size: 100% auto, 7em auto;
+
+        &__item {
+            margin-left: 0!important;
+            margin: 0!important;
+            flex-basis: 70%;
+            flex-shrink: 0;
+            &:not(:last-child) {
+                margin-right: 1em!important;
+            }
+        }
+    }
+    .study-plan__top {
+        flex-direction: column;
+        align-items: flex-start;
+        h2 {
+            font-size: 2em;
+            margin-bottom: .4em;
+        }
+    }
+    .price-card {
+        flex-direction: column;
+    }
+    .discount-form{
+        &__fieldset {
+        padding: 0!important;
+        margin-top: 2em;
+        font-size: 1em;
+        }
+    }   
+}
+
+@media (max-width: 480px) {
+    html, body {
+        font-size: 2.72vw !important;
+    }
+    .mobile-burger {
+        font-size: .9em;
+    }
+}
+
+@media (max-width: 320px) {
+    html, body {
+        font-size: 3.3vw !important;
+    }
+    .study-list {
+        padding-top: 18em;
+    }
+}

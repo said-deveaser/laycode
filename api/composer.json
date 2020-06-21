@@ -1,0 +1,10 @@
+{
+    "name": "laycode/code",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "model\\": "model",
+            "classes\\": "classes"
+        }
+    }
+}
