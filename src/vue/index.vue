@@ -292,7 +292,6 @@ export default {
             this.modal.elements = {
                     onlineRegistration: {display: 'none'}
             }
-            // console.log(this.modal.elements);
             
             this.modal.elements[n] = {display: 'block'}
         },
@@ -301,7 +300,6 @@ export default {
             this.salaryPointer[n] = 'salary__level-item--active'
         },
         studyplanTopFunc() {
-            console.log(1);
             
             if (this.studyplanTop == '') {
                 this.studyplanTop = 'active';
@@ -310,7 +308,6 @@ export default {
             };
         },
         studyplanBottomFunc() {
-            console.log(1);
             
             if (this.studyplanBottom == '') {
                 this.studyplanBottom = 'active';

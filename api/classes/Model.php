@@ -28,7 +28,7 @@ class Model {
         $this->sql = null;
         return $arr;
     }
-    public function select($str)
+    public function select($str = "*")
     {
         $this->sql = "SELECT $str FROM $this->tableName ";
         return $this;
@@ -49,5 +49,31 @@ class Model {
             }
         }
         return $this;
+    }
+    public function insert($arr)
+    {
+        $this->sql = "INSERT INTO $this->tableName  ";
+        $keys = '( ';
+        $values = '( ';
+        $counter = 0;
+        foreach ($arr as $key => $value) {
+            $key = $this->db->escape($key);
+            $value = $this->db->escape($value);
+            if ($counter == 0) {
+                $keys .= "$key";
+                $values .= "'$value'";
+                $counter++;
+            } else {
+                $keys .= ", $key";
+                $values .= ", '$value'";
+            }
+        }
+        $keys .= " ) ";
+        $values .= " ) ";
+        $this->sql .= "$keys VALUES $values";
+        // return $this->sql;
+        $result = $this->db->query($this->sql);
+        $this->sql = null;
+        return $result;
     }
 }

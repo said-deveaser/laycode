@@ -3,8 +3,6 @@ import VueRouter from 'vue-router';
 import Main from '../vue/index.vue';
 import Registry from '../vue/registry.vue';
 import Cabinet from '../vue/cabinet.vue';
-console.log('TESTED');
-console.log(Cabinet);
 
 
 Vue.use(VueRouter);
