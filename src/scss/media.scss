@@ -145,15 +145,22 @@ html, body {
             }
         }
     }
+    .header-container {
+        position: static!important;
+        align-items: center;
+        transition-delay: .3s;
+        // padding-bottom: 0;
+    }
     nav {
         opacity: 0;
+        transform: translate(0,0)!important;
         transition-duration: .5s;
         // display: none;
         position: absolute;
-        top: 100%;
+        top: 100%!important;
         height: 0;
         overflow: hidden;
-        right: 0;
+        right: 0!important;
         text-align: right;
         width: 100vw;
         // height: 100vh;
@@ -281,6 +288,27 @@ html, body {
         font-size: 1em;
         }
     }   
+    #user-cabinet {
+        flex-direction: column;
+        .user-info {
+            width: 100%;
+            padding-bottom: 1.5em;
+        }
+        .cabinet-plan-h {
+            // flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            span {
+                &:first-child {
+                    flex-basis: 100%;
+                }
+                &:not(:first-child) {
+                    
+                    margin-top: .5em;    
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 480px) {

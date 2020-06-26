@@ -3,6 +3,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
+    watch: true,
     mode: 'production',
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -11,7 +12,7 @@ module.exports = {
         }
     },
     devServer: {
-        port: 8080,
+        port: 3000,
         historyApiFallback: {
           index: 'index.html'
         }

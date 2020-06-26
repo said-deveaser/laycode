@@ -1,5 +1,6 @@
 export default {
     action: (str) => {
-        return "http://localhost:8081/api/" + str;
+        return "https://laycode.kz/api/" + str;
+        // return "http://localhost:8080/api/" + str;
     }
 }

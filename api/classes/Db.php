@@ -4,10 +4,14 @@ namespace classes;
 class Db {
     public function connect()
     {
-        $host = "localhost";
-        $name = "root";
-        $password = "root";
-        $dbname = "laycode";
+        // $host = "localhost";
+        // $name = "root";
+        // $password = "root";
+        // $dbname = "laycode";
+        $host = "srv-pleskdb50.ps.kz";
+        $name = "deveasys_laycode-admin";
+        $password = "77754950qwerty";
+        $dbname = "deveasys_laycode";
     
         static $connect = null;
     

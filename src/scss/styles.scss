@@ -77,6 +77,9 @@ body {
     a {
         font-size: toEm(20);
         text-transform: uppercase;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 .header-menu__item:last-child {
@@ -119,8 +122,11 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     margin-top: toEm(80, 25);
+    &:hover {
+        background-color: #e2e2e2;
+    }
     &:active {
-        background-color: red;
+        box-shadow: inset .3em .3em .3em #0000003a;
     }
 }
 .html-css-img {
@@ -340,6 +346,18 @@ section:not(#web-layouts-course):not(#be-webmaster) {
         text-transform: uppercase;
         color: white;
         font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        &:hover {
+            background-color: #7274e2;
+
+        }
+        &:active {
+            box-shadow: inset .3em .3em .3em #0000003a;
+        }
+        &:disabled {
+            background-color: grey;
+        }
     }
 }
 
@@ -434,7 +452,7 @@ section:not(#web-layouts-course):not(#be-webmaster) {
         margin-top: toEm(20, 30);
         &.active {
             .study-plan__ul {
-                height: toEm(400);
+                height: 28em;
             }
         }
     }
@@ -495,7 +513,7 @@ section:not(#web-layouts-course):not(#be-webmaster) {
     }
 
     &__form-text {
-        font-size: toEm(20);
+        font-size: 1.5em;
         color: $black;
     }
     &__form{
@@ -512,6 +530,29 @@ section:not(#web-layouts-course):not(#be-webmaster) {
             .discount-form__submit {
                 margin-top: toEm(27, 20);
             }
+        }
+    }
+    &__bait {
+        margin-top: 2em;
+        padding: 1em 2em 2em;
+        background-color: #eaecf2;
+        display: flex;
+        flex-direction: column;
+        &-text {
+            // margin: 1em 0 0;
+            font-size: 3em;
+            // text-transform: uppercase;
+            &--danger {
+                // text-decoration: underline;
+                background-color: #ffffec;
+                margin-left: .5em;
+                font-size: 1.3em;
+                color: #e2463b;
+            }
+        }
+        .discount-form__submit {
+            // margin-left: auto;
+            // margin-right: auto;
         }
     }
 }
@@ -541,13 +582,28 @@ footer {
 header {
  background: #ffffff00;
  transition-duration: .5s;
+ .header-container {
+     transition-duration: .3s;
+     position: relative;
+     nav {
+        transition-duration: .3s;
+         position: absolute;
+         top: 2.1875em;
+         right: 0;
+     }
+ }
 }
 header.active {
     background: $white;
     box-shadow: 0 0 1em #47464617;
     .header-container {
+        // align-items: center;
         color: $black;
         padding: 1.5em;
+        nav {
+            top: 50%;
+            transform: translate(0, -50%);
+        }
     }
     .mobile-burger span {
         transition-duration: .5s;
@@ -587,6 +643,12 @@ header.active {
         // width: 60%;
         max-width: toEm(860);
         font-size: toEm(20);
+        &--danger {
+            color: #ff5200;
+            font-weight: bold;
+            font-size: 1.4em;
+            padding-right: 3em;
+        }
         a {
             color: blue;
             text-decoration: underline;
@@ -750,7 +812,8 @@ header.active {
         border-bottom: 1px solid #d5d5d5;
     }
     &__logo-wrapper {
-        padding: 2em;
+        padding: .6em;
+        font-size: 2em!important;
     }
     &__item {
         padding: 0 2em;
@@ -802,5 +865,37 @@ header.active {
         padding: 0;
         border: none;
         margin-top: 4em;
+    }
+}
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 1em #00000000;
+    font-size: toEm(25);
+    .logo {
+        margin-bottom: .3em;
+        width: 2em;
+        transition-duration: .3s;
+        &--opened {
+            width: 1.5em;
+            box-shadow: 0 0 1em #0000003b;
+            margin-bottom: .3em;
+        }
+    }
+}
+.form-page-top-state {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrow-back {
+    cursor: pointer;
+    font-size: toEm(25);
+    color: $black;
+    font-weight: bold;
+    transition-duration: .3s;
+    &:hover {
+        color: #000;
     }
 }

@@ -13,7 +13,6 @@ class Model {
     {
         $this->db = new Db();
     }
-
     public function all()
     {
         if (!$this->sql) {
@@ -25,8 +24,13 @@ class Model {
         while ($row = mysqli_fetch_assoc($result)) {
             array_push($arr, $row);
         }
-        $this->sql = null;
-        return $arr;
+        if (empty($arr)) {
+            $this->sql = null ;
+            return false;
+        } else {
+            $this->sql = null ;
+            return $arr;
+        }
     }
     public function select($str = "*")
     {
@@ -41,11 +45,11 @@ class Model {
             $key = $this->db->escape($key);
             $value = $this->db->escape($value);
             if ($counter == 0) {
-                $this->sql .= "($key = $value) ";
+                $this->sql .= "$key = '$value' ";
                 $counter++;
             } else {
                 $this->sql .= "AND ";
-                $this->sql .= "($key = $value) ";
+                $this->sql .= "$key = '$value' ";
             }
         }
         return $this;
@@ -72,6 +76,42 @@ class Model {
         $values .= " ) ";
         $this->sql .= "$keys VALUES $values";
         // return $this->sql;
+        $result = $this->db->query($this->sql);
+        $this->sql = null;
+        return $result;
+    }
+    public function delete($arr)
+    {
+        $this->sql = "DELETE FROM $this->tableName WHERE ";
+        
+        foreach ($arr as $key => $value) {
+            $key = $this->db->escape($key);
+            $value = $this->db->escape($value);
+            $this->sql .= "$key = '$value' ";
+        }
+
+        $result = $this->db->query($this->sql);
+        $this->sql = null;
+        return $result;
+    }
+    public function update($arr)
+    {
+        $this->sql = "UPDATE $this->tableName SET ";
+        $counter = 0;
+        foreach ($arr as $key => $value) {
+            $key = $this->db->escape($key);
+            $value = $this->db->escape($value);
+            if ($counter === 0) {
+                $this->sql .= "$key = '$value' ";   
+                $counter++;
+            } else {
+                $this->sql .= ", $key = '$value' ";   
+            }
+        }
+        return $this;
+    }
+    public function query()
+    {
         $result = $this->db->query($this->sql);
         $this->sql = null;
         return $result;
