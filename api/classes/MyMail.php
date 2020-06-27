@@ -57,9 +57,15 @@ class MyMail {
         $c = true;
 
         $message = "<p>Здравствуйте, $arr[name]!</p>
-        <p>Данные для входа на laycode.kz</p>
-                    <p><b>email:</b> $arr[email]<br><b>Пароль</b> $arr[password]</p>
-                    <p>Войти в личный кабинет можно по ссылке <a href=\"https://laycode.kz/signin\">https://laycode.kz/signin</a>";
+        <p>Спасибо Вам, что выбрали наш курс. 
+        <br>Мы недавно перешли на онлайн обучение и сделали для Вас платформу, 
+        <br>чтобы вы могли следить за прогрессом своего обучения.</p>
+        <p>Данные для входа в кабинет на laycode.kz</p>
+                    <p><b>Email:</b> $arr[email]
+                    <br><b>Пароль:</b> $arr[password]</p>
+                <p>Войти в личный кабинет можно по ссылке <a href=\"https://laycode.kz/signin\">https://laycode.kz/signin</a></p>
+        <p><small>Это письмо отправлено роботом - не стоит на него отвечать. 
+        <br>Если у вас возникнут вопросы - <a href=\"https://laycode.kz/callback\" target=\"_blank\">https://laycode.kz/callback</a></small></p>";
 
 
         // $message = "<table style='width: 100%;'>$message</table>";

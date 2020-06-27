@@ -10,6 +10,7 @@ ini_set('session.cookie_lifetime', 604800);
 use model\Users;
 use model\Unconfrimed;
 use model\Tokens;
+use model\Visiterscounting;
 use classes\Helpers;
 use classes\MyMail;
 
@@ -164,11 +165,18 @@ class Controller {
             ]);
         }
     }
-    public function takepayment(Type $var = null)
+    public function howmatchviewers()
     {
-        echo "<h1> Тут буду принимать оплату</h1> <pre>";
-        var_dump($_POST);
-        var_dump($_GET);
+        // var_dump($_POST);
+        if (!isset($_COOKIE['token_make_counting'])) {
+            setcookie('token_make_counting', "21daw5123D@!523", time() + (3600 * 24 * 30));
+            // $_COOKIE['token_make_counting'] = "21alt&48";
+            $model = new Visiterscounting();
+            $model->insert([
+                "qq" => '1'
+            ]);
+        }
+        // var_dump($_COOKIE);
     }
     public function checkreg()
     {
@@ -194,6 +202,38 @@ class Controller {
         echo json_encode([
             "count" => $count
         ]);
+    }
+    public function setprefertime()
+    {
+        $userEmail = Helpers::checkToken();
+        if ($userEmail) {
+            $userModel = new Users();
+            $isBe = $userModel->select('user_study_time')->where([
+                "user_study_time" => $_POST["user-study-time"]
+            ])->all();
+            if (!$isBe) {
+                $result = $userModel->update([
+                    "user_study_time" => $_POST["user-study-time"],
+                ])->where([
+                    "email" => $userEmail
+                ])->query();
+                echo json_encode([
+                    "set" => $result,
+                    "studyTime" => $_POST['user-study-time']
+                ]);
+            } else {
+                echo json_encode([
+                    "set" => false,
+                ]);
+            }
+
+        }
+    }
+    public function getfreetimes()
+    {
+        $model = new Users();
+        $result = $model->select('user_study_time')->all();
+        echo json_encode($result);
     }
 }
 

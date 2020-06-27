@@ -718,6 +718,17 @@ header.active {
         text-align: center;
         width: 10em;
         text-transform: uppercase;
+        cursor: pointer;
+        &:hover {
+            background-color: #f7ca37;
+
+        }
+        &:active {
+            box-shadow: inset .3em .3em .3em #0000003a;
+        }
+        &:disabled {
+            background-color: grey;
+        }
     }
 
 }
@@ -791,6 +802,7 @@ header.active {
     padding: 0;
 }
 #user-cabinet {
+    padding-bottom: 0;
     min-height: 100vh;
     display: flex;
     > div {
@@ -816,7 +828,7 @@ header.active {
         font-size: 2em!important;
     }
     &__item {
-        padding: 0 2em;
+        padding: 0 2em 1em;
         margin-top: 1.5em;
     }
     &__student-id {

@@ -100,7 +100,7 @@
             </section>
             <section id="get-discount">
                 <div class="container">
-                    <h2 class="discount-h">Получите скидку<br>и консультацию по курсу</h2>
+                    <h2 class="discount-h">Получите <br>консультацию по курсу</h2>
                     <form id="consult-form" method="POST" class="discount-form" @submit.prevent="() => {konsulForm()}">
                         <fieldset class="discount-form__fieldset">
                             <legend style="display:none;">Получить консультацию</legend>
