@@ -180,14 +180,15 @@
                     <div class="price-card">
                         <div class="price-card__text">
                             <h3 class="price-card__h">Стоимость обучения</h3>
-                            <span class="price-card__old">175&nbsp;000&nbsp;тг  | 30&nbsp;200&nbsp;руб</span>
+                            <span class="price-card__old">87&nbsp;500&nbsp;тг  | 15&nbsp;100&nbsp;руб за модуль</span> 
                             <div class="sale">Скидка 30%</div>
-                            <h6 class="price-card__h6">Стоимость со скидкой</h6>
-                            <p class="price-card__new-price">122&nbsp;500&nbsp;тг  | 21&nbsp;100&nbsp;руб</p>
+                            <h6 class="price-card__h6">Стоимость со скидкой за 1 модуль</h6>
+                            <p class="price-card__new-price">61&nbsp;250&nbsp;тг  | 10&nbsp;550&nbsp;руб</p>
+                            <h6 class="price-card__h6">Всего модулей: 2</h6>
                         </div>
                         <form class="price-card__form" action="#">
                             <fieldset class="discount-form__fieldset">
-                                <span class="price-card__form-text">Обучение рассчитано в среднем на два месяца. Длительность зависит от Вашей успеваемости. Количество мест ограничено. Курс можно проходить помодульно</span>
+                                <span class="price-card__form-text">Обучение рассчитано в среднем на два месяца и состоит из двух модулей. Длительность зависит от Вашей успеваемости. Количество мест ограничено. Курс можно проходить помодульно</span>
                                 <legend style="display:none;">Записаться</legend>
                                 <div class="price-card__bait">
                                 <span class="price-card__bait-text"> Осталось мест: <sapn class="price-card__bait-text--danger"> {{freePlaces}}</sapn></span>
